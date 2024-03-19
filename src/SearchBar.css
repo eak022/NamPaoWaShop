@@ -1,0 +1,15 @@
+/* SearchBar.css */
+
+.search-bar {
+  width: 300px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  margin-left: 16px;
+}
+
+.search-bar::placeholder {
+  color: #999;
+}
