@@ -57,30 +57,37 @@ const Menu = ({ items }) => {
             <div className="item-info">
               <header>
                 <h4>{title}</h4>
-                <h4 className="price">{price}  BATH</h4>
+                <h4 className="price">{price} BATH</h4>
               </header>
               <p className="item-text">{desc}</p>
               <button onClick={() => addToCart(item)} style={styles.addButton}>
                 Add to Cart
               </button>
-              <button onClick={() => removeFromCart(id)} style={styles.removeButton}>
+              <button
+                onClick={() => removeFromCart(id)}
+                style={styles.removeButton}
+              >
                 Remove from Cart
               </button>
             </div>
           </article>
         );
       })}
-      <div className="cart-summary">
+      <div style= {styles.cartSummary}className="cart-summary">
         <h2 style={styles.cartSummaryHeading}>Cart Summary</h2>
         <ul>
           {cartItems.map((item) => (
             <li key={item.id}>
-              {item.title} - {item.price}  BATH
+              {item.title} - {item.price} BATH
             </li>
           ))}
         </ul>
         <p>Total: {totalAmount.toFixed(2)} BATH</p>
-        <PDFDownloadLink document={<MyDocument />} fileName="invoice.pdf" style={styles.downloadButton}>
+        <PDFDownloadLink
+          document={<MyDocument />}
+          fileName="invoice.pdf"
+          style={styles.downloadButton}
+        >
           {({ blob, url, loading, error }) =>
             loading ? "Loading document..." : "Check Out"
           }
@@ -88,7 +95,6 @@ const Menu = ({ items }) => {
       </div>
     </div>
   );
-  
 };
 
 const styles = StyleSheet.create({
@@ -121,14 +127,14 @@ const styles = StyleSheet.create({
     borderRadius: "8px",
   },
   downloadButton: {
-    backgroundColor: "#008CBA",
+    backgroundColor: "#c59d5f",
     border: "none",
     color: "white",
     padding: "10px 20px",
     textAlign: "center",
     textDecoration: "none",
     display: "inline-block",
-    fontSize: "16px",
+    fontSize: "15px",
     margin: "4px 2px",
     cursor: "pointer",
     borderRadius: "8px",
@@ -139,6 +145,16 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     fontWeight: "bold",
     color: "#333",
+  },
+  cartSummary: {
+    position: "fixed",
+    bottom: "15px",
+    right: "15px",
+    borderRadius: "0.75rem",
+    padding: "20px",
+    backgroundColor: "#fff",
+    boxShadow: "0px -4px 10px rgba(0, 0, 0, 0.1)",
+    zIndex: 9999, // Ensure it's above other content
   },
   page: {
     flexDirection: "row",
