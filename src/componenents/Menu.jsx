@@ -79,7 +79,7 @@ const Menu = ({ items }) => {
             </li>
           ))}
         </ul>
-        <p>Total: {totalAmount.toFixed(2) BATH}</p>
+        <p>Total: {totalAmount.toFixed(2)} BATH</p>
         <PDFDownloadLink document={<MyDocument />} fileName="invoice.pdf" style={styles.downloadButton}>
           {({ blob, url, loading, error }) =>
             loading ? "Loading document..." : "Check Out"
