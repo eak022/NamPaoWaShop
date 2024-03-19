@@ -41,7 +41,7 @@ const Menu = ({ items }) => {
               </Text>
             ))}
           </View>
-          <Text style={styles.total}>Total: ${totalAmount.toFixed(2)}</Text>
+          <Text style={styles.total}>Total: {totalAmount.toFixed(2)}BATH</Text>
         </View>
       </Page>
     </Document>
@@ -57,7 +57,7 @@ const Menu = ({ items }) => {
             <div className="item-info">
               <header>
                 <h4>{title}</h4>
-                <h4 className="price">${price}</h4>
+                <h4 className="price">{price}BATH</h4>
               </header>
               <p className="item-text">{desc}</p>
               <button onClick={() => addToCart(item)} style={styles.addButton}>
@@ -75,7 +75,7 @@ const Menu = ({ items }) => {
         <ul>
           {cartItems.map((item) => (
             <li key={item.id}>
-              {item.title} - ${item.price}
+              {item.title} - {item.price}BATH
             </li>
           ))}
         </ul>
