@@ -17,6 +17,10 @@ Font.register({ family: "THSarabunNew", src: THSarabunNew });
 
 const Menu = ({ items }) => {
   const [cartItems, setCartItems] = useState([]);
+  const [customerInfo, setCustomerInfo] = useState({
+    name: "",
+    phoneNumber: "",
+  });
 
   const addToCart = (item) => {
     setCartItems([...cartItems, item]);
@@ -34,6 +38,12 @@ const Menu = ({ items }) => {
       <Page style={styles.page}>
         <View style={styles.section}>
           <Text style={styles.heading}>Cart Summary</Text>
+          <Text style={styles.customerInfo}>
+            Customer Name: {customerInfo.name} <br />
+          </Text>
+          <Text style={styles.customerInfo}>
+            Phone Number: {customerInfo.phoneNumber}
+          </Text>
           <View style={styles.cartItems}>
             {cartItems.map((item) => (
               <Text key={item.id}>
@@ -41,7 +51,7 @@ const Menu = ({ items }) => {
               </Text>
             ))}
           </View>
-          <Text style={styles.total}>Total: {totalAmount.toFixed(2)}BATH</Text>
+          <Text style={styles.total}>Total: {totalAmount.toFixed(2)} BATH</Text>
         </View>
       </Page>
     </Document>
@@ -73,8 +83,24 @@ const Menu = ({ items }) => {
           </article>
         );
       })}
-      <div style= {styles.cartSummary}className="cart-summary">
+      <div style={styles.cartSummary} className="cart-summary">
         <h2 style={styles.cartSummaryHeading}>Cart Summary</h2>
+        <input
+          type="text"
+          placeholder="Enter your name"
+          value={customerInfo.name}
+          onChange={(e) =>
+            setCustomerInfo({ ...customerInfo, name: e.target.value })
+          }
+        />
+        <input
+          type="text"
+          placeholder="Enter your phone number"
+          value={customerInfo.phoneNumber}
+          onChange={(e) =>
+            setCustomerInfo({ ...customerInfo, phoneNumber: e.target.value })
+          }
+        />
         <ul>
           {cartItems.map((item) => (
             <li key={item.id}>
